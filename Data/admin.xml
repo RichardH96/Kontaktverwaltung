@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfContact xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Contact>
+    <Name>Richard</Name>
+    <Surname>Humer</Surname>
+    <street>Strobl</street>
+    <PLZ>5350</PLZ>
+    <Ort>Strobl</Ort>
+    <HouseNr>372</HouseNr>
+    <Birthdate>1996-04-08T21:25:32</Birthdate>
+    <Email>Humer.Richard@gmx.at</Email>
+    <Telnr>+43-123-12312312</Telnr>
+  </Contact>
+  <Contact>
+    <Name>Name</Name>
+    <Surname>Nachname</Surname>
+    <street>Test</street>
+    <PLZ>123123</PLZ>
+    <Ort>Testort</Ort>
+    <HouseNr>123</HouseNr>
+    <Birthdate>2010-06-09T21:26:28</Birthdate>
+    <Email>Test@mail.com</Email>
+    <Telnr>+43-123-1233223</Telnr>
+  </Contact>
+</ArrayOfContact>
