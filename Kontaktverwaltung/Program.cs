@@ -24,7 +24,7 @@ namespace Kontaktverwaltung
 			formLogin.ShowDialog();
 			if(formLogin.DialogResult==DialogResult.OK)
 			{
-				Application.Run(new FormMain(formLogin.UserName));
+				Application.Run(new FormMain(formLogin.UserLogin));
 			}
 			//Application.Run(new FormMain());
 		}

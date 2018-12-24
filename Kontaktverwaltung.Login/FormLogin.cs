@@ -16,6 +16,7 @@ namespace Kontaktverwaltung.Login
 	public partial class FormLogin : Form
 	{
 		List<User> regUsers = new List<User>();
+        User userLogin = null;
 		string savepath = "C:\\Solutions\\Kontaktverwaltung\\Data\\User.xml";
 		bool registermode = false;
 
@@ -45,11 +46,19 @@ namespace Kontaktverwaltung.Login
 		}
 
 
-		//##################Buttons######################
+        public User UserLogin
+        {
+            get { return userLogin; }
+            set { userLogin = value; }
+        }
 
-		#region Button
 
-		private void buttonRegister_Click(object sender, EventArgs e)
+
+        //##################Buttons######################
+
+        #region Buttons
+
+        private void buttonRegister_Click(object sender, EventArgs e)
 		{
 			registermode = true;
 			changeToRegister();
@@ -94,6 +103,7 @@ namespace Kontaktverwaltung.Login
 				{
 					if(user.username == this.textBoxUsername.Text)
 					{
+                        userLogin = user;
 						if(decodingPassword(user.password) == this.textBoxPassword.Text)
 						{
 							this.DialogResult = DialogResult.OK;

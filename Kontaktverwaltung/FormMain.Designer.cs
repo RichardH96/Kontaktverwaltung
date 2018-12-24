@@ -28,122 +28,147 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-			this.flowLayoutPanelMain = new System.Windows.Forms.FlowLayoutPanel();
-			this.menuMain = new System.Windows.Forms.MenuStrip();
-			this.programToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-			this.toolStripStatusUser = new System.Windows.Forms.ToolStripStatusLabel();
-			this.MenuItemNewContact = new System.Windows.Forms.ToolStripMenuItem();
-			this.MenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
-			this.label1 = new System.Windows.Forms.Label();
-			this.menuMain.SuspendLayout();
-			this.statusStrip1.SuspendLayout();
-			this.SuspendLayout();
-			// 
-			// flowLayoutPanelMain
-			// 
-			this.flowLayoutPanelMain.BackColor = System.Drawing.Color.White;
-			this.flowLayoutPanelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.flowLayoutPanelMain.Location = new System.Drawing.Point(53, 76);
-			this.flowLayoutPanelMain.Name = "flowLayoutPanelMain";
-			this.flowLayoutPanelMain.Size = new System.Drawing.Size(755, 328);
-			this.flowLayoutPanelMain.TabIndex = 1;
-			// 
-			// menuMain
-			// 
-			this.menuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.programToolStripMenuItem});
-			this.menuMain.Location = new System.Drawing.Point(0, 0);
-			this.menuMain.Name = "menuMain";
-			this.menuMain.Size = new System.Drawing.Size(861, 24);
-			this.menuMain.TabIndex = 0;
-			this.menuMain.Text = "menuStrip1";
-			// 
-			// programToolStripMenuItem
-			// 
-			this.programToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
+            this.flowLayoutPanelMain = new System.Windows.Forms.FlowLayoutPanel();
+            this.menuMain = new System.Windows.Forms.MenuStrip();
+            this.programToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemNewContact = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.MenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setSavepathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuMain.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // flowLayoutPanelMain
+            // 
+            this.flowLayoutPanelMain.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanelMain.Location = new System.Drawing.Point(71, 94);
+            this.flowLayoutPanelMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanelMain.Name = "flowLayoutPanelMain";
+            this.flowLayoutPanelMain.Size = new System.Drawing.Size(1006, 403);
+            this.flowLayoutPanelMain.TabIndex = 1;
+            // 
+            // menuMain
+            // 
+            this.menuMain.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.programToolStripMenuItem,
+            this.settingsToolStripMenuItem});
+            this.menuMain.Location = new System.Drawing.Point(0, 0);
+            this.menuMain.Name = "menuMain";
+            this.menuMain.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuMain.Size = new System.Drawing.Size(1148, 28);
+            this.menuMain.TabIndex = 0;
+            this.menuMain.Text = "menuStrip1";
+            // 
+            // programToolStripMenuItem
+            // 
+            this.programToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuItemNewContact,
             this.toolStripMenuItem1,
             this.MenuItemExit});
-			this.programToolStripMenuItem.Name = "programToolStripMenuItem";
-			this.programToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-			this.programToolStripMenuItem.Text = "Program";
-			// 
-			// toolStripMenuItem1
-			// 
-			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(179, 6);
-			// 
-			// statusStrip1
-			// 
-			this.statusStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
-			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.programToolStripMenuItem.Name = "programToolStripMenuItem";
+            this.programToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
+            this.programToolStripMenuItem.Text = "Program";
+            // 
+            // MenuItemNewContact
+            // 
+            this.MenuItemNewContact.Image = global::Kontaktverwaltung.Properties.Resources.Plus;
+            this.MenuItemNewContact.Name = "MenuItemNewContact";
+            this.MenuItemNewContact.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.MenuItemNewContact.Size = new System.Drawing.Size(218, 26);
+            this.MenuItemNewContact.Text = "Add contact";
+            this.MenuItemNewContact.Click += new System.EventHandler(this.MenuItemNewContact_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(215, 6);
+            // 
+            // MenuItemExit
+            // 
+            this.MenuItemExit.Image = global::Kontaktverwaltung.Properties.Resources.X;
+            this.MenuItemExit.Name = "MenuItemExit";
+            this.MenuItemExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.MenuItemExit.Size = new System.Drawing.Size(218, 26);
+            this.MenuItemExit.Text = "Exit";
+            this.MenuItemExit.Click += new System.EventHandler(this.MenuItemExit_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusUser});
-			this.statusStrip1.Location = new System.Drawing.Point(0, 426);
-			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(861, 22);
-			this.statusStrip1.TabIndex = 2;
-			this.statusStrip1.Text = "statusStrip1";
-			// 
-			// toolStripStatusUser
-			// 
-			this.toolStripStatusUser.Name = "toolStripStatusUser";
-			this.toolStripStatusUser.Size = new System.Drawing.Size(60, 17);
-			this.toolStripStatusUser.Text = "Username";
-			// 
-			// MenuItemNewContact
-			// 
-			this.MenuItemNewContact.Image = global::Kontaktverwaltung.Properties.Resources.Plus;
-			this.MenuItemNewContact.Name = "MenuItemNewContact";
-			this.MenuItemNewContact.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-			this.MenuItemNewContact.Size = new System.Drawing.Size(182, 22);
-			this.MenuItemNewContact.Text = "Add contact";
-			this.MenuItemNewContact.Click += new System.EventHandler(this.MenuItemNewContact_Click);
-			// 
-			// MenuItemExit
-			// 
-			this.MenuItemExit.Image = global::Kontaktverwaltung.Properties.Resources.X;
-			this.MenuItemExit.Name = "MenuItemExit";
-			this.MenuItemExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-			this.MenuItemExit.Size = new System.Drawing.Size(182, 22);
-			this.MenuItemExit.Text = "Exit";
-			this.MenuItemExit.Click += new System.EventHandler(this.MenuItemExit_Click);
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(45, 36);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(164, 37);
-			this.label1.TabIndex = 3;
-			this.label1.Text = "Kontakte:";
-			// 
-			// FormMain
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.IndianRed;
-			this.ClientSize = new System.Drawing.Size(861, 448);
-			this.Controls.Add(this.label1);
-			this.Controls.Add(this.statusStrip1);
-			this.Controls.Add(this.flowLayoutPanelMain);
-			this.Controls.Add(this.menuMain);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.MainMenuStrip = this.menuMain;
-			this.Name = "FormMain";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Meine Kontakte";
-			this.Load += new System.EventHandler(this.FormMain_Load);
-			this.menuMain.ResumeLayout(false);
-			this.menuMain.PerformLayout();
-			this.statusStrip1.ResumeLayout(false);
-			this.statusStrip1.PerformLayout();
-			this.ResumeLayout(false);
-			this.PerformLayout();
+            this.statusStrip1.Location = new System.Drawing.Point(0, 526);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1148, 25);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusUser
+            // 
+            this.toolStripStatusUser.Name = "toolStripStatusUser";
+            this.toolStripStatusUser.Size = new System.Drawing.Size(75, 20);
+            this.toolStripStatusUser.Text = "Username";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(60, 44);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(202, 46);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Kontakte:";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setSavepathToolStripMenuItem});
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // setSavepathToolStripMenuItem
+            // 
+            this.setSavepathToolStripMenuItem.Name = "setSavepathToolStripMenuItem";
+            this.setSavepathToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.setSavepathToolStripMenuItem.Text = "Set Savepath";
+            this.setSavepathToolStripMenuItem.Click += new System.EventHandler(this.setSavepathToolStripMenuItem_Click);
+            // 
+            // FormMain
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.IndianRed;
+            this.ClientSize = new System.Drawing.Size(1148, 551);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.flowLayoutPanelMain);
+            this.Controls.Add(this.menuMain);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuMain;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Meine Kontakte";
+            this.Load += new System.EventHandler(this.FormMain_Load);
+            this.menuMain.ResumeLayout(false);
+            this.menuMain.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
 		}
 
@@ -157,6 +182,8 @@
 		private System.Windows.Forms.StatusStrip statusStrip1;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusUser;
 		private System.Windows.Forms.Label label1;
-	}
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setSavepathToolStripMenuItem;
+    }
 }
 
