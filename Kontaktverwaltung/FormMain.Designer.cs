@@ -45,7 +45,7 @@
             this.buttonAllContacts = new System.Windows.Forms.Button();
             this.buttonGroup = new System.Windows.Forms.Button();
             this.labelSort = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.menuMain.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -201,13 +201,15 @@
             this.labelSort.TabIndex = 3;
             this.labelSort.Text = "Search:";
             // 
-            // textBox1
+            // textBoxSearch
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(992, 64);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(218, 25);
-            this.textBox1.TabIndex = 5;
+            this.textBoxSearch.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearch.Location = new System.Drawing.Point(992, 64);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(218, 25);
+            this.textBoxSearch.TabIndex = 5;
+            this.textBoxSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSearch_KeyPress);
+            this.textBoxSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxSearch_KeyUp);
             // 
             // FormMain
             // 
@@ -215,7 +217,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.IndianRed;
             this.ClientSize = new System.Drawing.Size(1247, 597);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.buttonGroup);
             this.Controls.Add(this.buttonAllContacts);
             this.Controls.Add(this.buttonFavorites);
@@ -258,7 +260,7 @@
         private System.Windows.Forms.Button buttonAllContacts;
         private System.Windows.Forms.Button buttonGroup;
         private System.Windows.Forms.Label labelSort;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxSearch;
     }
 }
 

@@ -76,6 +76,7 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(273, 25);
             this.textBoxName.TabIndex = 0;
+            this.textBoxName.Validated += new System.EventHandler(this.textBoxName_Validated);
             // 
             // labelSurname
             // 
@@ -97,6 +98,7 @@
             this.textBoxSurname.Name = "textBoxSurname";
             this.textBoxSurname.Size = new System.Drawing.Size(273, 25);
             this.textBoxSurname.TabIndex = 1;
+            this.textBoxSurname.Validated += new System.EventHandler(this.textBoxSurname_Validated);
             // 
             // labelBirthdate
             // 
@@ -171,6 +173,7 @@
             this.textBoxStreet.Name = "textBoxStreet";
             this.textBoxStreet.Size = new System.Drawing.Size(132, 25);
             this.textBoxStreet.TabIndex = 7;
+            this.textBoxStreet.Validated += new System.EventHandler(this.textBoxStreet_Validated);
             // 
             // labelPLZ
             // 
@@ -234,6 +237,7 @@
             this.textBoxOrt.Name = "textBoxOrt";
             this.textBoxOrt.Size = new System.Drawing.Size(132, 25);
             this.textBoxOrt.TabIndex = 10;
+            this.textBoxOrt.Validated += new System.EventHandler(this.textBoxOrt_Validated);
             // 
             // comboBoxTelNr1
             // 

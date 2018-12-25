@@ -20,7 +20,7 @@ namespace Kontaktverwaltung
         string savepath = string.Empty;
         User thisUser = null;
         List<Contact> allContacts = new List<Contact>();
-        
+        List<Contact> searchList = new List<Contact>();
 
         public FormMain()
         {
@@ -248,6 +248,20 @@ namespace Kontaktverwaltung
             }
         }
 
+        public void fillPanelSearch(List<Contact> list)
+        {
+            this.flowLayoutPanelMain.Controls.Clear();
+
+
+            foreach (Contact contact in list)
+            {
+                BaseContact baseContact = new BaseContact(contact, this);
+                baseContact.Tag = contact;
+                this.flowLayoutPanelMain.Controls.Add(baseContact);
+            }
+
+        }
+
         #endregion
 
         //############################# SaveMethod ######################################
@@ -344,10 +358,59 @@ namespace Kontaktverwaltung
         }
 
 
+
+
+
         #endregion
 
+        private void textBoxSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\b')
+            {
+                searchList.Clear();
+            }
+
+        }
+
+        private void textBoxSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            
+            if (searchList.Count == 0)
+            {
+                foreach (Contact contact in allContacts)
+                {
+                    if (contact.Name.Contains(this.textBoxSearch.Text) || contact.Surname.Contains(this.textBoxSearch.Text))
+                    {
+                        searchList.Add(contact);
+                    }
+                }
+            }
+            else
+            {
+                bool conflict = false;
+                do
+                {
+                    conflict = false;
+                    foreach (Contact contact in searchList)
+                    {
+                        if (contact.Name.Contains(this.textBoxSearch.Text) || contact.Surname.Contains(this.textBoxSearch.Text))
+                        {
+
+                        }
+                        else
+                        {
+                            searchList.Remove(contact);
+                            conflict = true;
+                            break;
+                        }
+                    }
+                } while (conflict);
+
+            }
 
 
 
+            fillPanelSearch(searchList);
+        }
     }
 }

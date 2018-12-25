@@ -79,5 +79,116 @@ namespace Kontaktverwaltung
 		{
 			this.Close();
 		}
-	}
+
+        //######################## Textboxen Validated ############################
+        #region Textboxen Validated
+
+
+
+        private void textBoxName_Validated(object sender, EventArgs e)
+        {
+            string temp = string.Empty;
+
+            if (this.textBoxName.Text[0] >= 97)
+            {
+                bool firstLetter = true;
+                foreach (char c in this.textBoxName.Text)
+                {
+                    if (firstLetter)
+                    {
+                        temp += Convert.ToChar(((int)c) - 32);
+                        firstLetter = false;
+                    }
+                    else
+                    {
+                        temp += c;
+                    }
+                        
+                }
+                this.textBoxName.Text = temp;
+            }
+
+
+                
+        }
+
+        private void textBoxSurname_Validated(object sender, EventArgs e)
+        {
+            string temp = string.Empty;
+
+            if (this.textBoxSurname.Text[0] >= 97)
+            {
+                bool firstLetter = true;
+                foreach (char c in this.textBoxSurname.Text)
+                {
+                    if (firstLetter)
+                    {
+                        temp += Convert.ToChar(((int)c) - 32);
+                        firstLetter = false;
+                    }
+                    else
+                    {
+                        temp += c;
+                    }
+
+                }
+                this.textBoxSurname.Text = temp;
+            }
+        }
+
+        private void textBoxStreet_Validated(object sender, EventArgs e)
+        {
+            string temp = string.Empty;
+
+            if (this.textBoxStreet.Text[0] >= 97)
+            {
+                bool firstLetter = true;
+                foreach (char c in this.textBoxStreet.Text)
+                {
+                    if (firstLetter)
+                    {
+                        temp += Convert.ToChar(((int)c) - 32);
+                        firstLetter = false;
+                    }
+                    else
+                    {
+                        temp += c;
+                    }
+
+                }
+                this.textBoxStreet.Text = temp;
+            }
+        }
+
+        private void textBoxOrt_Validated(object sender, EventArgs e)
+        {
+            string temp = string.Empty;
+
+            if (this.textBoxOrt.Text[0] >= 97)
+            {
+                bool firstLetter = true;
+                foreach (char c in this.textBoxOrt.Text)
+                {
+                    if (firstLetter)
+                    {
+                        temp += Convert.ToChar(((int)c) - 32);
+                        firstLetter = false;
+                    }
+                    else
+                    {
+                        temp += c;
+                    }
+
+                }
+                this.textBoxOrt.Text = temp;
+            }
+        }
+
+
+
+
+        #endregion
+
+
+    }
 }
