@@ -29,6 +29,8 @@ namespace Kontaktverwaltung.Data
         public bool favorite { get; set; }
         public List<string> groups { get; set; }
 
+       
+
 
 
     }

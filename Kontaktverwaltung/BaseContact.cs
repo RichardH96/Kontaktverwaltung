@@ -46,6 +46,7 @@ namespace Kontaktverwaltung
 			form.ShowDialog();
 			if(form.DialogResult== DialogResult.OK)
 			{
+                formMain.sortContactList();
 				formMain.save();
 				formMain.fillPanel();
 			}

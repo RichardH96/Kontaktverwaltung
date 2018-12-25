@@ -20,6 +20,7 @@ namespace Kontaktverwaltung
         string savepath = string.Empty;
         User thisUser = null;
         List<Contact> allContacts = new List<Contact>();
+        
 
         public FormMain()
         {
@@ -41,6 +42,8 @@ namespace Kontaktverwaltung
         private void FormMain_Load(object sender, EventArgs e)
         {
             bool done = false;
+
+            
 
             do
             {
@@ -80,7 +83,7 @@ namespace Kontaktverwaltung
             }
             this.toolStripStatusUser.Text = this.username;
 
-
+            
         }
 
         #endregion
@@ -102,6 +105,8 @@ namespace Kontaktverwaltung
             {
                 allContacts.Add(contact);
                 this.flowLayoutPanelMain.Controls.Clear();
+
+                sortContactList();
 
                 fillPanel();
 
@@ -217,6 +222,7 @@ namespace Kontaktverwaltung
         public void fillPanel()
         {
             this.flowLayoutPanelMain.Controls.Clear();
+
             
             foreach (Contact contact in allContacts)
             {
@@ -266,8 +272,82 @@ namespace Kontaktverwaltung
 
 
 
+
         #endregion
 
-        
+        //############################# ABCSortMethod ######################################
+        #region ABCSortMethod
+
+        public void sortContactList()
+        {
+            List<Contact> temp = new List<Contact>();
+
+            foreach (Contact contact in allContacts)
+            {
+                temp.Add(contact);
+            }
+            allContacts.Clear();
+            
+            Contact addToList = null;
+            int i = 0;
+
+            do
+            {
+                bool conflict = false;
+                foreach (Contact contact in temp)
+                {
+                    if (contact.Surname[0] == i)
+                    {
+                        if (addToList == null)
+                        {
+                            addToList = contact;
+                        }
+                        else
+                        {
+                            conflict = true;
+                            for (int idx = 1; idx < addToList.Surname.Length; idx++)
+                            {
+                                if (addToList.Surname[idx] > contact.Surname[idx])
+                                {
+                                    addToList = contact;
+                                    break;
+                                }
+                                else if(addToList.Surname[idx] < contact.Surname[idx])
+                                {
+                                    break;
+                                }
+                                
+                            }
+
+
+
+                        }
+
+                    }
+
+                }
+
+                if (addToList != null)
+                {
+                    this.allContacts.Add(addToList);
+                    temp.Remove(addToList);
+                    addToList = null;
+                }
+                
+
+
+                if(!conflict) i++;
+
+            } while (temp.Count > 0);
+
+            //save??
+        }
+
+
+        #endregion
+
+
+
+
     }
 }

@@ -45,8 +45,7 @@
             this.buttonAllContacts = new System.Windows.Forms.Button();
             this.buttonGroup = new System.Windows.Forms.Button();
             this.labelSort = new System.Windows.Forms.Label();
-            this.buttonSort = new System.Windows.Forms.Button();
-            this.comboBoxSort = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuMain.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -195,31 +194,20 @@
             // 
             this.labelSort.AutoSize = true;
             this.labelSort.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSort.Location = new System.Drawing.Point(605, 69);
+            this.labelSort.Location = new System.Drawing.Point(923, 67);
             this.labelSort.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSort.Name = "labelSort";
-            this.labelSort.Size = new System.Drawing.Size(79, 18);
+            this.labelSort.Size = new System.Drawing.Size(62, 18);
             this.labelSort.TabIndex = 3;
-            this.labelSort.Text = "Sort after:";
+            this.labelSort.Text = "Search:";
             // 
-            // buttonSort
+            // textBox1
             // 
-            this.buttonSort.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSort.Location = new System.Drawing.Point(861, 64);
-            this.buttonSort.Name = "buttonSort";
-            this.buttonSort.Size = new System.Drawing.Size(90, 28);
-            this.buttonSort.TabIndex = 4;
-            this.buttonSort.Text = "Sort";
-            this.buttonSort.UseVisualStyleBackColor = true;
-            this.buttonSort.Click += new System.EventHandler(this.buttonFavorites_Click);
-            // 
-            // comboBoxSort
-            // 
-            this.comboBoxSort.FormattingEnabled = true;
-            this.comboBoxSort.Location = new System.Drawing.Point(691, 64);
-            this.comboBoxSort.Name = "comboBoxSort";
-            this.comboBoxSort.Size = new System.Drawing.Size(146, 24);
-            this.comboBoxSort.TabIndex = 5;
+            this.textBox1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(992, 64);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(218, 25);
+            this.textBox1.TabIndex = 5;
             // 
             // FormMain
             // 
@@ -227,10 +215,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.IndianRed;
             this.ClientSize = new System.Drawing.Size(1247, 597);
-            this.Controls.Add(this.comboBoxSort);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonGroup);
             this.Controls.Add(this.buttonAllContacts);
-            this.Controls.Add(this.buttonSort);
             this.Controls.Add(this.buttonFavorites);
             this.Controls.Add(this.labelSort);
             this.Controls.Add(this.label1);
@@ -271,8 +258,7 @@
         private System.Windows.Forms.Button buttonAllContacts;
         private System.Windows.Forms.Button buttonGroup;
         private System.Windows.Forms.Label labelSort;
-        private System.Windows.Forms.Button buttonSort;
-        private System.Windows.Forms.ComboBox comboBoxSort;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
