@@ -19,8 +19,7 @@ namespace Kontaktverwaltung.Login.Data
 
         public string savepath { get; set; }
 
-
-
+        
 
 
     }

@@ -42,6 +42,9 @@ namespace Kontaktverwaltung
 				this.textBoxTelNr3.Text = temp[2];
 				this.comboBoxTelNr1.Text = temp[0];
 			}
+
+            if (contact.favorite == true)
+                checkBoxFav.Checked = true;
 			
 
 		}
@@ -57,6 +60,16 @@ namespace Kontaktverwaltung
 			contact.street = this.textBoxStreet.Text;
 			contact.Surname = this.textBoxSurname.Text;
 			contact.Telnr = $"{this.comboBoxTelNr1.Text}-{this.textBoxTelNr2.Text}-{this.textBoxTelNr3.Text}";
+
+            if (checkBoxFav.Checked == true)
+            {
+                contact.favorite = true;
+            }
+            else
+            {
+                contact.favorite = false;
+            }
+
 
 			this.DialogResult = DialogResult.OK;
 			this.Close();

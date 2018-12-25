@@ -26,7 +26,10 @@ namespace Kontaktverwaltung.Data
 		public string Email { get; set; }
 		public string Telnr { get; set; }
 
+        public bool favorite { get; set; }
+        public List<string> groups { get; set; }
 
 
-	}
+
+    }
 }

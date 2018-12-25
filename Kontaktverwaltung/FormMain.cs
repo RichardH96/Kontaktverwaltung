@@ -116,7 +116,7 @@ namespace Kontaktverwaltung
         //+++++++++++++++++++++++++++++ Exit ++++++++++++++++++++++++++++++++++
         #region Exit
 
-        
+
         private void MenuItemExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -185,6 +185,31 @@ namespace Kontaktverwaltung
 
 
 
+        //############################# Buttons ######################################
+        #region Buttons
+
+
+        private void buttonFavorites_Click(object sender, EventArgs e)
+        {
+            fillPanelFav();
+        }
+
+
+        private void buttonAllContacts_Click(object sender, EventArgs e)
+        {
+            fillPanel();
+        }
+
+
+
+
+
+
+        #endregion
+
+
+
+
         //############################# FillPanelMethod ######################################
         #region FillPanelMethod
 
@@ -192,6 +217,7 @@ namespace Kontaktverwaltung
         public void fillPanel()
         {
             this.flowLayoutPanelMain.Controls.Clear();
+            
             foreach (Contact contact in allContacts)
             {
                 BaseContact baseContact = new BaseContact(contact, this);
@@ -199,6 +225,21 @@ namespace Kontaktverwaltung
                 this.flowLayoutPanelMain.Controls.Add(baseContact);
             }
 
+        }
+
+        public void fillPanelFav()
+        {
+            this.flowLayoutPanelMain.Controls.Clear();
+
+            foreach (Contact contact in allContacts)
+            {
+                if (contact.favorite == true)
+                {
+                    BaseContact baseContact = new BaseContact(contact, this);
+                    baseContact.Tag = contact;
+                    this.flowLayoutPanelMain.Controls.Add(baseContact);
+                }
+            }
         }
 
         #endregion
@@ -215,16 +256,18 @@ namespace Kontaktverwaltung
             writer.Close();
         }
 
+
+
+
+
+
+
+
+
+
+
         #endregion
 
         
-
-
-
-
-
-
-
-
     }
 }

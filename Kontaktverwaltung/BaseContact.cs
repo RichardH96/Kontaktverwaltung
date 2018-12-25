@@ -16,7 +16,10 @@ namespace Kontaktverwaltung
 		private Contact contact = null;
 		FormMain formMain = null;
 
-		public BaseContact()
+        //######################## constructors #####################################
+        #region constructors    
+
+        public BaseContact()
 		{
 			InitializeComponent();
 		}
@@ -32,8 +35,12 @@ namespace Kontaktverwaltung
 			string[] temp = contact.Telnr.Split('-');
 			this.labelTelnr.Text = $"{temp[0]} {temp[1]} {temp[2]}";
 		}
-		
-		private void myDoubleClickHandler(object sender, EventArgs e)
+
+
+        #endregion
+
+
+        private void myDoubleClickHandler(object sender, EventArgs e)
 		{
 			FormAddContact form = new FormAddContact(contact);
 			form.ShowDialog();
@@ -43,5 +50,28 @@ namespace Kontaktverwaltung
 				formMain.fillPanel();
 			}
 		}
-	}
+
+
+        //############################ Favorites ########################################
+        #region Favorites
+
+        
+
+        private void toolStripMenuItemFav_Click(object sender, EventArgs e)
+        {
+            contact.favorite = true;
+        }
+
+        private void toolStripMenuItemRemoveFav_Click(object sender, EventArgs e)
+        {
+            contact.favorite = false;
+        }
+
+
+        #endregion  
+
+
+
+
+    }
 }

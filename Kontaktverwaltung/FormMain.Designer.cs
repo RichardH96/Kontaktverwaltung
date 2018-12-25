@@ -40,6 +40,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setSavepathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonFavorites = new System.Windows.Forms.Button();
+            this.buttonAllContacts = new System.Windows.Forms.Button();
+            this.buttonGroup = new System.Windows.Forms.Button();
+            this.labelSort = new System.Windows.Forms.Label();
+            this.buttonSort = new System.Windows.Forms.Button();
+            this.comboBoxSort = new System.Windows.Forms.ComboBox();
             this.menuMain.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +55,7 @@
             // 
             this.flowLayoutPanelMain.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanelMain.Location = new System.Drawing.Point(71, 94);
+            this.flowLayoutPanelMain.Location = new System.Drawing.Point(204, 96);
             this.flowLayoutPanelMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanelMain.Name = "flowLayoutPanelMain";
             this.flowLayoutPanelMain.Size = new System.Drawing.Size(1006, 403);
@@ -63,7 +70,7 @@
             this.menuMain.Location = new System.Drawing.Point(0, 0);
             this.menuMain.Name = "menuMain";
             this.menuMain.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuMain.Size = new System.Drawing.Size(1148, 28);
+            this.menuMain.Size = new System.Drawing.Size(1247, 28);
             this.menuMain.TabIndex = 0;
             this.menuMain.Text = "menuStrip1";
             // 
@@ -72,7 +79,8 @@
             this.programToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuItemNewContact,
             this.toolStripMenuItem1,
-            this.MenuItemExit});
+            this.MenuItemExit,
+            this.newGroupToolStripMenuItem});
             this.programToolStripMenuItem.Name = "programToolStripMenuItem";
             this.programToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
             this.programToolStripMenuItem.Text = "Program";
@@ -106,10 +114,10 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusUser});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 526);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 572);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1148, 25);
+            this.statusStrip1.Size = new System.Drawing.Size(1247, 25);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -123,7 +131,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(60, 44);
+            this.label1.Location = new System.Drawing.Point(193, 46);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(202, 46);
@@ -145,12 +153,86 @@
             this.setSavepathToolStripMenuItem.Text = "Set Savepath";
             this.setSavepathToolStripMenuItem.Click += new System.EventHandler(this.setSavepathToolStripMenuItem_Click);
             // 
+            // newGroupToolStripMenuItem
+            // 
+            this.newGroupToolStripMenuItem.Name = "newGroupToolStripMenuItem";
+            this.newGroupToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.newGroupToolStripMenuItem.Text = "New Group";
+            // 
+            // buttonFavorites
+            // 
+            this.buttonFavorites.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFavorites.Location = new System.Drawing.Point(12, 107);
+            this.buttonFavorites.Name = "buttonFavorites";
+            this.buttonFavorites.Size = new System.Drawing.Size(150, 46);
+            this.buttonFavorites.TabIndex = 4;
+            this.buttonFavorites.Text = "Favorites";
+            this.buttonFavorites.UseVisualStyleBackColor = true;
+            this.buttonFavorites.Click += new System.EventHandler(this.buttonFavorites_Click);
+            // 
+            // buttonAllContacts
+            // 
+            this.buttonAllContacts.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAllContacts.Location = new System.Drawing.Point(12, 159);
+            this.buttonAllContacts.Name = "buttonAllContacts";
+            this.buttonAllContacts.Size = new System.Drawing.Size(150, 46);
+            this.buttonAllContacts.TabIndex = 4;
+            this.buttonAllContacts.Text = "All Contacts";
+            this.buttonAllContacts.UseVisualStyleBackColor = true;
+            this.buttonAllContacts.Click += new System.EventHandler(this.buttonAllContacts_Click);
+            // 
+            // buttonGroup
+            // 
+            this.buttonGroup.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGroup.Location = new System.Drawing.Point(12, 224);
+            this.buttonGroup.Name = "buttonGroup";
+            this.buttonGroup.Size = new System.Drawing.Size(150, 46);
+            this.buttonGroup.TabIndex = 4;
+            this.buttonGroup.Text = "Group";
+            this.buttonGroup.UseVisualStyleBackColor = true;
+            // 
+            // labelSort
+            // 
+            this.labelSort.AutoSize = true;
+            this.labelSort.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSort.Location = new System.Drawing.Point(605, 69);
+            this.labelSort.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelSort.Name = "labelSort";
+            this.labelSort.Size = new System.Drawing.Size(79, 18);
+            this.labelSort.TabIndex = 3;
+            this.labelSort.Text = "Sort after:";
+            // 
+            // buttonSort
+            // 
+            this.buttonSort.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSort.Location = new System.Drawing.Point(861, 64);
+            this.buttonSort.Name = "buttonSort";
+            this.buttonSort.Size = new System.Drawing.Size(90, 28);
+            this.buttonSort.TabIndex = 4;
+            this.buttonSort.Text = "Sort";
+            this.buttonSort.UseVisualStyleBackColor = true;
+            this.buttonSort.Click += new System.EventHandler(this.buttonFavorites_Click);
+            // 
+            // comboBoxSort
+            // 
+            this.comboBoxSort.FormattingEnabled = true;
+            this.comboBoxSort.Location = new System.Drawing.Point(691, 64);
+            this.comboBoxSort.Name = "comboBoxSort";
+            this.comboBoxSort.Size = new System.Drawing.Size(146, 24);
+            this.comboBoxSort.TabIndex = 5;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.IndianRed;
-            this.ClientSize = new System.Drawing.Size(1148, 551);
+            this.ClientSize = new System.Drawing.Size(1247, 597);
+            this.Controls.Add(this.comboBoxSort);
+            this.Controls.Add(this.buttonGroup);
+            this.Controls.Add(this.buttonAllContacts);
+            this.Controls.Add(this.buttonSort);
+            this.Controls.Add(this.buttonFavorites);
+            this.Controls.Add(this.labelSort);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.flowLayoutPanelMain);
@@ -184,6 +266,13 @@
 		private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setSavepathToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newGroupToolStripMenuItem;
+        private System.Windows.Forms.Button buttonFavorites;
+        private System.Windows.Forms.Button buttonAllContacts;
+        private System.Windows.Forms.Button buttonGroup;
+        private System.Windows.Forms.Label labelSort;
+        private System.Windows.Forms.Button buttonSort;
+        private System.Windows.Forms.ComboBox comboBoxSort;
     }
 }
 

@@ -28,71 +28,121 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.labelFullName = new System.Windows.Forms.Label();
-			this.labelBirthdate = new System.Windows.Forms.Label();
-			this.labelEmail = new System.Windows.Forms.Label();
-			this.labelTelnr = new System.Windows.Forms.Label();
-			this.SuspendLayout();
-			// 
-			// labelFullName
-			// 
-			this.labelFullName.AutoSize = true;
-			this.labelFullName.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelFullName.Location = new System.Drawing.Point(23, 3);
-			this.labelFullName.Name = "labelFullName";
-			this.labelFullName.Size = new System.Drawing.Size(65, 16);
-			this.labelFullName.TabIndex = 0;
-			this.labelFullName.Text = "fullName";
-			this.labelFullName.DoubleClick += new System.EventHandler(this.myDoubleClickHandler);
-			// 
-			// labelBirthdate
-			// 
-			this.labelBirthdate.AutoSize = true;
-			this.labelBirthdate.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelBirthdate.Location = new System.Drawing.Point(184, 2);
-			this.labelBirthdate.Name = "labelBirthdate";
-			this.labelBirthdate.Size = new System.Drawing.Size(66, 16);
-			this.labelBirthdate.TabIndex = 0;
-			this.labelBirthdate.Text = "Birthdate";
-			this.labelBirthdate.DoubleClick += new System.EventHandler(this.myDoubleClickHandler);
-			// 
-			// labelEmail
-			// 
-			this.labelEmail.AutoSize = true;
-			this.labelEmail.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelEmail.Location = new System.Drawing.Point(323, 2);
-			this.labelEmail.Name = "labelEmail";
-			this.labelEmail.Size = new System.Drawing.Size(44, 16);
-			this.labelEmail.TabIndex = 0;
-			this.labelEmail.Text = "Email";
-			this.labelEmail.DoubleClick += new System.EventHandler(this.myDoubleClickHandler);
-			// 
-			// labelTelnr
-			// 
-			this.labelTelnr.AutoSize = true;
-			this.labelTelnr.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelTelnr.Location = new System.Drawing.Point(558, 2);
-			this.labelTelnr.Name = "labelTelnr";
-			this.labelTelnr.Size = new System.Drawing.Size(41, 16);
-			this.labelTelnr.TabIndex = 0;
-			this.labelTelnr.Text = "TelNr";
-			this.labelTelnr.DoubleClick += new System.EventHandler(this.myDoubleClickHandler);
-			// 
-			// BaseContact
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.IndianRed;
-			this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.Controls.Add(this.labelTelnr);
-			this.Controls.Add(this.labelEmail);
-			this.Controls.Add(this.labelBirthdate);
-			this.Controls.Add(this.labelFullName);
-			this.Name = "BaseContact";
-			this.Size = new System.Drawing.Size(745, 21);
-			this.DoubleClick += new System.EventHandler(this.myDoubleClickHandler);
-			this.ResumeLayout(false);
-			this.PerformLayout();
+            this.components = new System.ComponentModel.Container();
+            this.labelFullName = new System.Windows.Forms.Label();
+            this.labelBirthdate = new System.Windows.Forms.Label();
+            this.labelEmail = new System.Windows.Forms.Label();
+            this.labelTelnr = new System.Windows.Forms.Label();
+            this.contextMenuStripContacts = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemFav = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemGroup = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemRemoveFav = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStripContacts.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // labelFullName
+            // 
+            this.labelFullName.AutoSize = true;
+            this.labelFullName.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFullName.Location = new System.Drawing.Point(31, 5);
+            this.labelFullName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelFullName.Name = "labelFullName";
+            this.labelFullName.Size = new System.Drawing.Size(76, 19);
+            this.labelFullName.TabIndex = 0;
+            this.labelFullName.Text = "fullName";
+            this.labelFullName.DoubleClick += new System.EventHandler(this.myDoubleClickHandler);
+            // 
+            // labelBirthdate
+            // 
+            this.labelBirthdate.AutoSize = true;
+            this.labelBirthdate.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBirthdate.Location = new System.Drawing.Point(245, 3);
+            this.labelBirthdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelBirthdate.Name = "labelBirthdate";
+            this.labelBirthdate.Size = new System.Drawing.Size(82, 19);
+            this.labelBirthdate.TabIndex = 0;
+            this.labelBirthdate.Text = "Birthdate";
+            this.labelBirthdate.DoubleClick += new System.EventHandler(this.myDoubleClickHandler);
+            // 
+            // labelEmail
+            // 
+            this.labelEmail.AutoSize = true;
+            this.labelEmail.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmail.Location = new System.Drawing.Point(431, 3);
+            this.labelEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.Size = new System.Drawing.Size(51, 19);
+            this.labelEmail.TabIndex = 0;
+            this.labelEmail.Text = "Email";
+            this.labelEmail.DoubleClick += new System.EventHandler(this.myDoubleClickHandler);
+            // 
+            // labelTelnr
+            // 
+            this.labelTelnr.AutoSize = true;
+            this.labelTelnr.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTelnr.Location = new System.Drawing.Point(744, 3);
+            this.labelTelnr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTelnr.Name = "labelTelnr";
+            this.labelTelnr.Size = new System.Drawing.Size(50, 19);
+            this.labelTelnr.TabIndex = 0;
+            this.labelTelnr.Text = "TelNr";
+            this.labelTelnr.DoubleClick += new System.EventHandler(this.myDoubleClickHandler);
+            // 
+            // contextMenuStripContacts
+            // 
+            this.contextMenuStripContacts.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStripContacts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemFav,
+            this.toolStripMenuItemRemoveFav,
+            this.toolStripMenuItem1,
+            this.toolStripMenuItemGroup});
+            this.contextMenuStripContacts.Name = "contextMenuStripContacts";
+            this.contextMenuStripContacts.Size = new System.Drawing.Size(231, 82);
+            // 
+            // toolStripMenuItemFav
+            // 
+            this.toolStripMenuItemFav.Name = "toolStripMenuItemFav";
+            this.toolStripMenuItemFav.Size = new System.Drawing.Size(230, 24);
+            this.toolStripMenuItemFav.Text = "Add to Favorites";
+            this.toolStripMenuItemFav.Click += new System.EventHandler(this.toolStripMenuItemFav_Click);
+            // 
+            // toolStripMenuItemGroup
+            // 
+            this.toolStripMenuItemGroup.Name = "toolStripMenuItemGroup";
+            this.toolStripMenuItemGroup.Size = new System.Drawing.Size(230, 24);
+            this.toolStripMenuItemGroup.Text = "Add to Group";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(227, 6);
+            // 
+            // toolStripMenuItemRemoveFav
+            // 
+            this.toolStripMenuItemRemoveFav.Name = "toolStripMenuItemRemoveFav";
+            this.toolStripMenuItemRemoveFav.Size = new System.Drawing.Size(230, 24);
+            this.toolStripMenuItemRemoveFav.Text = "Remove from Favorites";
+            this.toolStripMenuItemRemoveFav.Click += new System.EventHandler(this.toolStripMenuItemRemoveFav_Click);
+            // 
+            // BaseContact
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.IndianRed;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ContextMenuStrip = this.contextMenuStripContacts;
+            this.Controls.Add(this.labelTelnr);
+            this.Controls.Add(this.labelEmail);
+            this.Controls.Add(this.labelBirthdate);
+            this.Controls.Add(this.labelFullName);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "BaseContact";
+            this.Size = new System.Drawing.Size(993, 26);
+            this.DoubleClick += new System.EventHandler(this.myDoubleClickHandler);
+            this.contextMenuStripContacts.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
 		}
 
@@ -102,5 +152,10 @@
 		private System.Windows.Forms.Label labelBirthdate;
 		private System.Windows.Forms.Label labelEmail;
 		private System.Windows.Forms.Label labelTelnr;
-	}
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripContacts;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemFav;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemGroup;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRemoveFav;
+    }
 }
