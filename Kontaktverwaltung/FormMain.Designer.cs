@@ -33,14 +33,14 @@
             this.menuMain = new System.Windows.Forms.MenuStrip();
             this.programToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItemNewContact = new System.Windows.Forms.ToolStripMenuItem();
+            this.newGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.MenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setSavepathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.setSavepathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonFavorites = new System.Windows.Forms.Button();
             this.buttonAllContacts = new System.Windows.Forms.Button();
             this.buttonGroup = new System.Windows.Forms.Button();
@@ -52,10 +52,11 @@
             // 
             // flowLayoutPanelMain
             // 
+            this.flowLayoutPanelMain.AutoScroll = true;
             this.flowLayoutPanelMain.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanelMain.Location = new System.Drawing.Point(204, 96);
-            this.flowLayoutPanelMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanelMain.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanelMain.Name = "flowLayoutPanelMain";
             this.flowLayoutPanelMain.Size = new System.Drawing.Size(1006, 403);
             this.flowLayoutPanelMain.TabIndex = 1;
@@ -77,9 +78,9 @@
             // 
             this.programToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuItemNewContact,
+            this.newGroupToolStripMenuItem,
             this.toolStripMenuItem1,
-            this.MenuItemExit,
-            this.newGroupToolStripMenuItem});
+            this.MenuItemExit});
             this.programToolStripMenuItem.Name = "programToolStripMenuItem";
             this.programToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
             this.programToolStripMenuItem.Text = "Program";
@@ -92,6 +93,12 @@
             this.MenuItemNewContact.Size = new System.Drawing.Size(218, 26);
             this.MenuItemNewContact.Text = "Add contact";
             this.MenuItemNewContact.Click += new System.EventHandler(this.MenuItemNewContact_Click);
+            // 
+            // newGroupToolStripMenuItem
+            // 
+            this.newGroupToolStripMenuItem.Name = "newGroupToolStripMenuItem";
+            this.newGroupToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.newGroupToolStripMenuItem.Text = "New Group";
             // 
             // toolStripMenuItem1
             // 
@@ -106,6 +113,21 @@
             this.MenuItemExit.Size = new System.Drawing.Size(218, 26);
             this.MenuItemExit.Text = "Exit";
             this.MenuItemExit.Click += new System.EventHandler(this.MenuItemExit_Click);
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setSavepathToolStripMenuItem});
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // setSavepathToolStripMenuItem
+            // 
+            this.setSavepathToolStripMenuItem.Name = "setSavepathToolStripMenuItem";
+            this.setSavepathToolStripMenuItem.Size = new System.Drawing.Size(170, 26);
+            this.setSavepathToolStripMenuItem.Text = "Set Savepath";
+            this.setSavepathToolStripMenuItem.Click += new System.EventHandler(this.setSavepathToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -137,27 +159,6 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Kontakte:";
             // 
-            // settingsToolStripMenuItem
-            // 
-            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.setSavepathToolStripMenuItem});
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
-            this.settingsToolStripMenuItem.Text = "Settings";
-            // 
-            // setSavepathToolStripMenuItem
-            // 
-            this.setSavepathToolStripMenuItem.Name = "setSavepathToolStripMenuItem";
-            this.setSavepathToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.setSavepathToolStripMenuItem.Text = "Set Savepath";
-            this.setSavepathToolStripMenuItem.Click += new System.EventHandler(this.setSavepathToolStripMenuItem_Click);
-            // 
-            // newGroupToolStripMenuItem
-            // 
-            this.newGroupToolStripMenuItem.Name = "newGroupToolStripMenuItem";
-            this.newGroupToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
-            this.newGroupToolStripMenuItem.Text = "New Group";
-            // 
             // buttonFavorites
             // 
             this.buttonFavorites.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -165,7 +166,7 @@
             this.buttonFavorites.Name = "buttonFavorites";
             this.buttonFavorites.Size = new System.Drawing.Size(150, 46);
             this.buttonFavorites.TabIndex = 4;
-            this.buttonFavorites.Text = "Favorites";
+            this.buttonFavorites.Text = "Favoriten";
             this.buttonFavorites.UseVisualStyleBackColor = true;
             this.buttonFavorites.Click += new System.EventHandler(this.buttonFavorites_Click);
             // 
@@ -176,7 +177,7 @@
             this.buttonAllContacts.Name = "buttonAllContacts";
             this.buttonAllContacts.Size = new System.Drawing.Size(150, 46);
             this.buttonAllContacts.TabIndex = 4;
-            this.buttonAllContacts.Text = "All Contacts";
+            this.buttonAllContacts.Text = "Alle Kontakte";
             this.buttonAllContacts.UseVisualStyleBackColor = true;
             this.buttonAllContacts.Click += new System.EventHandler(this.buttonAllContacts_Click);
             // 
@@ -187,8 +188,9 @@
             this.buttonGroup.Name = "buttonGroup";
             this.buttonGroup.Size = new System.Drawing.Size(150, 46);
             this.buttonGroup.TabIndex = 4;
-            this.buttonGroup.Text = "Group";
+            this.buttonGroup.Text = "Gruppen";
             this.buttonGroup.UseVisualStyleBackColor = true;
+            this.buttonGroup.Click += new System.EventHandler(this.buttonGroup_Click);
             // 
             // labelSort
             // 
@@ -197,9 +199,9 @@
             this.labelSort.Location = new System.Drawing.Point(923, 67);
             this.labelSort.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSort.Name = "labelSort";
-            this.labelSort.Size = new System.Drawing.Size(62, 18);
+            this.labelSort.Size = new System.Drawing.Size(57, 18);
             this.labelSort.TabIndex = 3;
-            this.labelSort.Text = "Search:";
+            this.labelSort.Text = "Suche:";
             // 
             // textBoxSearch
             // 
@@ -229,7 +231,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuMain;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Meine Kontakte";

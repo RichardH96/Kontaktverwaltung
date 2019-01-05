@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FAC1A0CE-D297-4820-A2B5-4F0A914B7B4B}</ProjectGuid>
+    <ProjectGuid>{DC94D0EA-BA0A-46C6-9CF3-BC1A956ED169}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Kontaktverwaltung</RootNamespace>
-    <AssemblyName>Kontaktverwaltung</AssemblyName>
+    <RootNamespace>Kontaktverwaltung.Main.Group</RootNamespace>
+    <AssemblyName>Kontaktverwaltung.Main.Group</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,23 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormAddContact.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAddContact.Designer.cs">
-      <DependentUpon>FormAddContact.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BaseContact.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="BaseContact.Designer.cs">
-      <DependentUpon>BaseContact.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormAddContactsToGroup.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAddContactsToGroup.Designer.cs">
-      <DependentUpon>FormAddContactsToGroup.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="FormGroups.cs">
       <SubType>Form</SubType>
@@ -70,37 +58,10 @@
     <Compile Include="FormGroups.Designer.cs">
       <DependentUpon>FormGroups.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormMain.Designer.cs">
-      <DependentUpon>FormMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormEditGroup.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormEditGroup.Designer.cs">
-      <DependentUpon>FormEditGroup.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormAddContact.resx">
-      <DependentUpon>FormAddContact.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BaseContact.resx">
-      <DependentUpon>BaseContact.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAddContactsToGroup.resx">
-      <DependentUpon>FormAddContactsToGroup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEditGroup.resx">
-      <DependentUpon>FormEditGroup.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormGroups.resx">
       <DependentUpon>FormGroups.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormMain.resx">
-      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -110,7 +71,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -130,38 +90,6 @@
       <Project>{0D8C6456-1388-4927-86C6-616FC7F283B3}</Project>
       <Name>Kontaktverwaltung.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Kontaktverwaltung.Login.Data\Kontaktverwaltung.Login.Data.csproj">
-      <Project>{FCFC41DF-DF7B-4EBD-81E9-52AB63FC9B4F}</Project>
-      <Name>Kontaktverwaltung.Login.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Kontaktverwaltung.Login\Kontaktverwaltung.Login.csproj">
-      <Project>{4E9DACEF-C631-4D15-A6E2-76223D8E6272}</Project>
-      <Name>Kontaktverwaltung.Login</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Plus.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\X.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Add_8x_16x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Add_16x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Close-2-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconfinder_Delete_132746.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconfinder_forward_126569.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconfinder_back_126585.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

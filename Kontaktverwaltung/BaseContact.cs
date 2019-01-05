@@ -60,18 +60,33 @@ namespace Kontaktverwaltung
 
         private void toolStripMenuItemFav_Click(object sender, EventArgs e)
         {
-            contact.favorite = true;
+            if (this.toolStripMenuItemFav.Text == "Add to Favorites")
+            {
+                contact.favorite = true;
+            }
+            else if (this.toolStripMenuItemFav.Text == "Remove from Favorites") 
+            {
+                contact.favorite = false;
+            }
         }
 
-        private void toolStripMenuItemRemoveFav_Click(object sender, EventArgs e)
+
+        private void contextMenuStripContacts_Opening(object sender, CancelEventArgs e)
         {
-            contact.favorite = false;
+            if (contact.favorite == false)
+            {
+                this.toolStripMenuItemFav.Text = "Add to Favorites";
+            }
+            else if (contact.favorite == true)
+            {
+                this.toolStripMenuItemFav.Text = "Remove from Favorites";
+            }
         }
 
 
-        #endregion  
 
 
+        #endregion
 
 
     }

@@ -16,11 +16,13 @@ namespace Kontaktverwaltung
 {
     public partial class FormMain : Form
     {
+
         string username = string.Empty;
         string savepath = string.Empty;
         User thisUser = null;
-        List<Contact> allContacts = new List<Contact>();
+        public List<Contact> allContacts = new List<Contact>();
         List<Contact> searchList = new List<Contact>();
+        List<Group> allGroups = new List<Group>();
 
         public FormMain()
         {
@@ -35,58 +37,9 @@ namespace Kontaktverwaltung
             this.savepath = userLogin.savepath;
         }
 
-
-        //############################# Form_Load ######################################
-        #region Form_Load
-
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-            bool done = false;
-
-            
-
-            do
-            {
-                if (savepath == null)
-                {
-                    MessageBox.Show("Bitte wählen Sie einen Speicherpfad.", "Wichtig!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                    SaveFileDialog dialog = new SaveFileDialog();
-                    dialog.Filter = "XML-File|*.xml|All Files|*.*";
-
-                    if (dialog.ShowDialog() == DialogResult.OK)
-                    {
-                        this.thisUser.savepath = dialog.FileName;
-                        this.savepath = dialog.FileName;
-                        saveManuelPath();
-                        save();
-                        done = true;
-                    }
-                }
-                else
-                {
-                    done = true;
-                }
-            } while (done == false);
+        public Group selectedGroup { get; set; }
 
 
-            if (File.Exists(savepath))
-            {
-                StreamReader reader = new StreamReader(this.savepath, Encoding.UTF8);
-                XmlSerializer serializer = new XmlSerializer(typeof(List<Contact>));
-                this.allContacts = (List<Contact>)serializer.Deserialize(reader);
-                reader.Close();
-
-                fillPanel();
-
-
-            }
-            this.toolStripStatusUser.Text = this.username;
-
-            
-        }
-
-        #endregion
 
         //############################# Menu - Program ######################################
         #region Menu - Program
@@ -205,7 +158,17 @@ namespace Kontaktverwaltung
             fillPanel();
         }
 
+        private void buttonGroup_Click(object sender, EventArgs e)
+        {
+            FormGroups form = new FormGroups(allGroups, this);
+            form.ShowDialog();
 
+            if (form.DialogResult == DialogResult.OK) 
+            {
+                fillPanelGroup();
+            }
+
+        }
 
 
 
@@ -215,18 +178,19 @@ namespace Kontaktverwaltung
 
 
 
-        //############################# FillPanelMethod ######################################
-        #region FillPanelMethod
+        //############################# FillPanelMethods ######################################
+        #region FillPanelMethods
 
 
         public void fillPanel()
         {
             this.flowLayoutPanelMain.Controls.Clear();
+            BaseContact baseContact = null;
 
-            
+
             foreach (Contact contact in allContacts)
             {
-                BaseContact baseContact = new BaseContact(contact, this);
+                baseContact = new BaseContact(contact, this);
                 baseContact.Tag = contact;
                 this.flowLayoutPanelMain.Controls.Add(baseContact);
             }
@@ -236,12 +200,13 @@ namespace Kontaktverwaltung
         public void fillPanelFav()
         {
             this.flowLayoutPanelMain.Controls.Clear();
+            BaseContact baseContact = null;
 
             foreach (Contact contact in allContacts)
             {
                 if (contact.favorite == true)
                 {
-                    BaseContact baseContact = new BaseContact(contact, this);
+                    baseContact = new BaseContact(contact, this);
                     baseContact.Tag = contact;
                     this.flowLayoutPanelMain.Controls.Add(baseContact);
                 }
@@ -251,15 +216,28 @@ namespace Kontaktverwaltung
         public void fillPanelSearch(List<Contact> list)
         {
             this.flowLayoutPanelMain.Controls.Clear();
-
+            BaseContact baseContact = null;
 
             foreach (Contact contact in list)
             {
-                BaseContact baseContact = new BaseContact(contact, this);
+                baseContact = new BaseContact(contact, this);
                 baseContact.Tag = contact;
                 this.flowLayoutPanelMain.Controls.Add(baseContact);
             }
 
+        }
+
+        private void fillPanelGroup()
+        {
+            this.flowLayoutPanelMain.Controls.Clear();
+            BaseContact baseContact = null;
+
+            foreach (Contact contact in this.selectedGroup.Members)
+            {
+                baseContact = new BaseContact(contact, this);
+                baseContact.Tag = contact;
+                this.flowLayoutPanelMain.Controls.Add(baseContact);
+            }
         }
 
         #endregion
@@ -270,9 +248,18 @@ namespace Kontaktverwaltung
 
         public void save()
         {
+            //StreamWriter writer = new StreamWriter(savepath, false, Encoding.UTF8);
+            //XmlSerializer serializer = new XmlSerializer(typeof(List<Contact>));
+            //serializer.Serialize(writer, allContacts);
+            //writer.Close();
+
+            SaveThis save = new SaveThis();
+            save.allContacts = this.allContacts;
+            save.allGroups = this.allGroups;
+
             StreamWriter writer = new StreamWriter(savepath, false, Encoding.UTF8);
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Contact>));
-            serializer.Serialize(writer, allContacts);
+            XmlSerializer serializer = new XmlSerializer(typeof(SaveThis));
+            serializer.Serialize(writer, save);
             writer.Close();
         }
 
@@ -363,6 +350,78 @@ namespace Kontaktverwaltung
 
         #endregion
 
+        
+
+
+
+
+
+        //############################# Form_Load ######################################
+        #region Form_Load
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            bool done = false;
+
+
+
+            do
+            {
+                if (savepath == null)
+                {
+                    MessageBox.Show("Bitte wählen Sie einen Speicherpfad.", "Wichtig!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                    SaveFileDialog dialog = new SaveFileDialog();
+                    dialog.Filter = "XML-File|*.xml|All Files|*.*";
+
+                    if (dialog.ShowDialog() == DialogResult.OK)
+                    {
+                        this.thisUser.savepath = dialog.FileName;
+                        this.savepath = dialog.FileName;
+                        saveManuelPath();
+                        save();
+                        done = true;
+                    }
+                }
+                else
+                {
+                    done = true;
+                }
+            } while (done == false);
+
+
+            if (File.Exists(savepath))
+            {
+                //StreamReader reader = new StreamReader(this.savepath, Encoding.UTF8);
+                //XmlSerializer serializer = new XmlSerializer(typeof(List<Contact>));
+                //this.allContacts = (List<Contact>)serializer.Deserialize(reader);
+                //reader.Close();
+
+                SaveThis save = new SaveThis();
+
+                StreamReader reader = new StreamReader(this.savepath, Encoding.UTF8);
+                XmlSerializer serializer = new XmlSerializer(typeof(SaveThis));
+                save = (SaveThis)serializer.Deserialize(reader);
+                reader.Close();
+
+                this.allContacts = save.allContacts;
+                this.allGroups = save.allGroups;
+
+                fillPanel();
+
+
+            }
+            this.toolStripStatusUser.Text = this.username;
+
+
+        }
+
+        #endregion
+
+        //############################# Search_Events ######################################
+        #region Search_Events
+
+
         private void textBoxSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '\b')
@@ -412,5 +471,11 @@ namespace Kontaktverwaltung
 
             fillPanelSearch(searchList);
         }
+
+
+
+        #endregion
+
+        
     }
 }

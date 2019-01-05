@@ -11,55 +11,67 @@ using System.Windows.Forms;
 
 namespace Kontaktverwaltung
 {
-	public partial class FormAddContact : Form
-	{
-		Contact contact = null;
-		public FormAddContact()
-		{
-			InitializeComponent();
-		}
+    public partial class FormAddContact : Form
+    {
+        Contact contact = null;
 
-		public FormAddContact(Contact contact)
-		{
-			InitializeComponent();
-			this.contact = contact;
-			if (contact.Birthdate < this.dateTimePickerBirthdate.MinDate)
-			{
-				contact.Birthdate = DateTime.Now;
-			}
-			this.dateTimePickerBirthdate.Value = contact.Birthdate;
-			this.textBoxEmail.Text = contact.Email;
-			this.textBoxHouseNr.Text = contact.HouseNr.ToString();
-			this.textBoxName.Text = contact.Name;
-			this.textBoxOrt.Text = contact.Ort;
-			this.textBoxPLZ.Text = contact.PLZ.ToString();
-			this.textBoxStreet.Text = contact.street;
-			this.textBoxSurname.Text = contact.Surname;
-			if (contact.Telnr != null)
-			{
-				string[] temp = contact.Telnr.Split('-');
-				this.textBoxTelNr2.Text = temp[1];
-				this.textBoxTelNr3.Text = temp[2];
-				this.comboBoxTelNr1.Text = temp[0];
-			}
+        //######################## constructor ############################
+        #region constructor
+
+
+        public FormAddContact()
+        {
+            InitializeComponent();
+        }
+
+        public FormAddContact(Contact contact)
+        {
+            InitializeComponent();
+            this.contact = contact;
+            if (contact.Birthdate < this.dateTimePickerBirthdate.MinDate)
+            {
+                contact.Birthdate = DateTime.Now;
+            }
+            this.dateTimePickerBirthdate.Value = contact.Birthdate;
+            this.textBoxEmail.Text = contact.Email;
+            this.textBoxHouseNr.Text = contact.HouseNr.ToString();
+            this.textBoxName.Text = contact.Name;
+            this.textBoxOrt.Text = contact.Ort;
+            this.textBoxPLZ.Text = contact.PLZ.ToString();
+            this.textBoxStreet.Text = contact.street;
+            this.textBoxSurname.Text = contact.Surname;
+            if (contact.Telnr != null)
+            {
+                string[] temp = contact.Telnr.Split('-');
+                this.textBoxTelNr2.Text = temp[1];
+                this.textBoxTelNr3.Text = temp[2];
+                this.comboBoxTelNr1.Text = temp[0];
+            }
 
             if (contact.favorite == true)
                 checkBoxFav.Checked = true;
-			
 
-		}
 
-		private void buttonSave_Click(object sender, EventArgs e)
-		{
-			contact.Birthdate = this.dateTimePickerBirthdate.Value;
-			contact.Email = this.textBoxEmail.Text;
-			contact.HouseNr = int.Parse(this.textBoxHouseNr.Text);
-			contact.Name = this.textBoxName.Text;
-			contact.Ort = this.textBoxOrt.Text;
-			contact.PLZ = int.Parse(this.textBoxPLZ.Text);
-			contact.street = this.textBoxStreet.Text;
-			contact.Surname = this.textBoxSurname.Text;
-			contact.Telnr = $"{this.comboBoxTelNr1.Text}-{this.textBoxTelNr2.Text}-{this.textBoxTelNr3.Text}";
+        }
+
+        #endregion
+
+
+        //######################## Buttons ############################
+        #region Buttons
+
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            contact.Birthdate = this.dateTimePickerBirthdate.Value;
+            contact.Email = this.textBoxEmail.Text;
+            contact.HouseNr = int.Parse(this.textBoxHouseNr.Text);
+            contact.Name = this.textBoxName.Text;
+            contact.Ort = this.textBoxOrt.Text;
+            contact.PLZ = int.Parse(this.textBoxPLZ.Text);
+            contact.street = this.textBoxStreet.Text;
+            contact.Surname = this.textBoxSurname.Text;
+            contact.Telnr = $"{this.comboBoxTelNr1.Text}-{this.textBoxTelNr2.Text}-{this.textBoxTelNr3.Text}";
 
             if (checkBoxFav.Checked == true)
             {
@@ -71,14 +83,16 @@ namespace Kontaktverwaltung
             }
 
 
-			this.DialogResult = DialogResult.OK;
-			this.Close();
-		}
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
 
-		private void buttonCancel_Click(object sender, EventArgs e)
-		{
-			this.Close();
-		}
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
+
 
         //######################## Textboxen Validated ############################
         #region Textboxen Validated
@@ -89,99 +103,116 @@ namespace Kontaktverwaltung
         {
             string temp = string.Empty;
 
-            if (this.textBoxName.Text[0] >= 97)
+            if (this.textBoxName.Text != string.Empty)
             {
-                bool firstLetter = true;
-                foreach (char c in this.textBoxName.Text)
+                if (this.textBoxName.Text[0] >= 97)
                 {
-                    if (firstLetter)
+                    bool firstLetter = true;
+                    foreach (char c in this.textBoxName.Text)
                     {
-                        temp += Convert.ToChar(((int)c) - 32);
-                        firstLetter = false;
+                        if (firstLetter)
+                        {
+                            temp += Convert.ToChar(((int)c) - 32);
+                            firstLetter = false;
+                        }
+                        else
+                        {
+                            temp += c;
+                        }
+
                     }
-                    else
-                    {
-                        temp += c;
-                    }
-                        
+                    this.textBoxName.Text = temp;
                 }
-                this.textBoxName.Text = temp;
             }
 
 
-                
+
+
+
         }
 
         private void textBoxSurname_Validated(object sender, EventArgs e)
         {
             string temp = string.Empty;
 
-            if (this.textBoxSurname.Text[0] >= 97)
+            if (this.textBoxSurname.Text != string.Empty)
             {
-                bool firstLetter = true;
-                foreach (char c in this.textBoxSurname.Text)
+                if (this.textBoxSurname.Text[0] >= 97)
                 {
-                    if (firstLetter)
+                    bool firstLetter = true;
+                    foreach (char c in this.textBoxSurname.Text)
                     {
-                        temp += Convert.ToChar(((int)c) - 32);
-                        firstLetter = false;
-                    }
-                    else
-                    {
-                        temp += c;
-                    }
+                        if (firstLetter)
+                        {
+                            temp += Convert.ToChar(((int)c) - 32);
+                            firstLetter = false;
+                        }
+                        else
+                        {
+                            temp += c;
+                        }
 
+                    }
+                    this.textBoxSurname.Text = temp;
                 }
-                this.textBoxSurname.Text = temp;
             }
+           
         }
 
         private void textBoxStreet_Validated(object sender, EventArgs e)
         {
             string temp = string.Empty;
 
-            if (this.textBoxStreet.Text[0] >= 97)
+            if (this.textBoxStreet.Text != string.Empty)
             {
-                bool firstLetter = true;
-                foreach (char c in this.textBoxStreet.Text)
+                if (this.textBoxStreet.Text[0] >= 97)
                 {
-                    if (firstLetter)
+                    bool firstLetter = true;
+                    foreach (char c in this.textBoxStreet.Text)
                     {
-                        temp += Convert.ToChar(((int)c) - 32);
-                        firstLetter = false;
-                    }
-                    else
-                    {
-                        temp += c;
-                    }
+                        if (firstLetter)
+                        {
+                            temp += Convert.ToChar(((int)c) - 32);
+                            firstLetter = false;
+                        }
+                        else
+                        {
+                            temp += c;
+                        }
 
+                    }
+                    this.textBoxStreet.Text = temp;
                 }
-                this.textBoxStreet.Text = temp;
             }
+            
         }
 
         private void textBoxOrt_Validated(object sender, EventArgs e)
         {
             string temp = string.Empty;
 
-            if (this.textBoxOrt.Text[0] >= 97)
+            if (this.textBoxOrt.Text != string.Empty)
             {
-                bool firstLetter = true;
-                foreach (char c in this.textBoxOrt.Text)
+                if (this.textBoxOrt.Text[0] >= 97)
                 {
-                    if (firstLetter)
+                    bool firstLetter = true;
+                    foreach (char c in this.textBoxOrt.Text)
                     {
-                        temp += Convert.ToChar(((int)c) - 32);
-                        firstLetter = false;
-                    }
-                    else
-                    {
-                        temp += c;
-                    }
+                        if (firstLetter)
+                        {
+                            temp += Convert.ToChar(((int)c) - 32);
+                            firstLetter = false;
+                        }
+                        else
+                        {
+                            temp += c;
+                        }
 
+                    }
+                    this.textBoxOrt.Text = temp;
                 }
-                this.textBoxOrt.Text = temp;
             }
+            
         }
 
 

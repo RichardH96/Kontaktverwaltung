@@ -35,9 +35,8 @@
             this.labelTelnr = new System.Windows.Forms.Label();
             this.contextMenuStripContacts = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemFav = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemGroup = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItemRemoveFav = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemGroup = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripContacts.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,36 +93,29 @@
             this.contextMenuStripContacts.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStripContacts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemFav,
-            this.toolStripMenuItemRemoveFav,
             this.toolStripMenuItem1,
             this.toolStripMenuItemGroup});
             this.contextMenuStripContacts.Name = "contextMenuStripContacts";
-            this.contextMenuStripContacts.Size = new System.Drawing.Size(231, 82);
+            this.contextMenuStripContacts.Size = new System.Drawing.Size(187, 58);
+            this.contextMenuStripContacts.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripContacts_Opening);
             // 
             // toolStripMenuItemFav
             // 
             this.toolStripMenuItemFav.Name = "toolStripMenuItemFav";
-            this.toolStripMenuItemFav.Size = new System.Drawing.Size(230, 24);
+            this.toolStripMenuItemFav.Size = new System.Drawing.Size(210, 24);
             this.toolStripMenuItemFav.Text = "Add to Favorites";
             this.toolStripMenuItemFav.Click += new System.EventHandler(this.toolStripMenuItemFav_Click);
-            // 
-            // toolStripMenuItemGroup
-            // 
-            this.toolStripMenuItemGroup.Name = "toolStripMenuItemGroup";
-            this.toolStripMenuItemGroup.Size = new System.Drawing.Size(230, 24);
-            this.toolStripMenuItemGroup.Text = "Add to Group";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(227, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(207, 6);
             // 
-            // toolStripMenuItemRemoveFav
+            // toolStripMenuItemGroup
             // 
-            this.toolStripMenuItemRemoveFav.Name = "toolStripMenuItemRemoveFav";
-            this.toolStripMenuItemRemoveFav.Size = new System.Drawing.Size(230, 24);
-            this.toolStripMenuItemRemoveFav.Text = "Remove from Favorites";
-            this.toolStripMenuItemRemoveFav.Click += new System.EventHandler(this.toolStripMenuItemRemoveFav_Click);
+            this.toolStripMenuItemGroup.Name = "toolStripMenuItemGroup";
+            this.toolStripMenuItemGroup.Size = new System.Drawing.Size(210, 24);
+            this.toolStripMenuItemGroup.Text = "Add to Group";
             // 
             // BaseContact
             // 
@@ -136,7 +128,7 @@
             this.Controls.Add(this.labelEmail);
             this.Controls.Add(this.labelBirthdate);
             this.Controls.Add(this.labelFullName);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BaseContact";
             this.Size = new System.Drawing.Size(993, 26);
             this.DoubleClick += new System.EventHandler(this.myDoubleClickHandler);
@@ -156,6 +148,5 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemFav;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemGroup;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRemoveFav;
     }
 }
