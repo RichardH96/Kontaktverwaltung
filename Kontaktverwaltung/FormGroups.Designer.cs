@@ -120,7 +120,7 @@
             this.groupBoxMembers.Controls.Add(this.listViewContacts);
             this.groupBoxMembers.Location = new System.Drawing.Point(800, 12);
             this.groupBoxMembers.Name = "groupBoxMembers";
-            this.groupBoxMembers.Size = new System.Drawing.Size(231, 358);
+            this.groupBoxMembers.Size = new System.Drawing.Size(185, 358);
             this.groupBoxMembers.TabIndex = 2;
             this.groupBoxMembers.TabStop = false;
             this.groupBoxMembers.Text = "Mitglieder";
@@ -130,7 +130,7 @@
             this.listViewContacts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewContacts.Location = new System.Drawing.Point(3, 18);
             this.listViewContacts.Name = "listViewContacts";
-            this.listViewContacts.Size = new System.Drawing.Size(225, 337);
+            this.listViewContacts.Size = new System.Drawing.Size(179, 337);
             this.listViewContacts.SmallImageList = this.imageList;
             this.listViewContacts.TabIndex = 0;
             this.listViewContacts.UseCompatibleStateImageBehavior = false;

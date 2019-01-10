@@ -37,11 +37,12 @@ namespace Kontaktverwaltung
             }
             
 
-            if(this.group.Members.Count != 0)
+            if(this.group.members.Count != 0)
             {
-                foreach (Contact contact in this.group.Members)
+                foreach (Contact contact in this.formMain.allContacts)
                 {
-                    createItem(contact);
+                    if (this.group.members.Contains(contact.ID))
+                        createItem(contact);
                 }
             }
             
@@ -55,12 +56,6 @@ namespace Kontaktverwaltung
         {
             this.group.Name = this.textBoxName.Text;
             this.group.Info = this.textBoxInfo.Text;
-            //this.group.Members.Clear();
-
-            //foreach (ListViewItem item in this.listView1.Items)
-            //{
-            //    this.group.Members.Add((Contact)item.Tag);
-            //}
 
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -82,13 +77,17 @@ namespace Kontaktverwaltung
                 ListViewItem item = null;
                 this.listView1.Items.Clear();
 
-                foreach(Contact contact in this.group.Members)
+                foreach(Contact contact in this.formMain.allContacts)
                 {
-                    item = new ListViewItem();
-                    item.Tag = contact;
-                    item.Text = $"{contact.Surname} {contact.Name}";
-                    item.ImageIndex = 0;
-                    this.listView1.Items.Add(item);
+                    if (this.group.members.Contains(contact.ID))
+                    {
+                        item = new ListViewItem();
+                        item.Tag = contact;
+                        item.Text = $"{contact.Surname} {contact.Name}";
+                        item.ImageIndex = 0;
+                        this.listView1.Items.Add(item);
+                    }
+                    
                 }
             }
         }

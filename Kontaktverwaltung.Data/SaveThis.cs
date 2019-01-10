@@ -16,5 +16,6 @@ namespace Kontaktverwaltung.Data
 
         public List<Contact> allContacts { get; set; }
         public List<Group> allGroups { get; set; }
+        public List<int> usedIDs { get; set; }
     }
 }

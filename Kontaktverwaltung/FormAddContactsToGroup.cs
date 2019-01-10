@@ -15,6 +15,7 @@ namespace Kontaktverwaltung
     {
         List<Contact> allContacts = new List<Contact>();
         Group group = null;
+        FormMain main = null;
 
 
         public FormAddContactsToGroup()
@@ -25,17 +26,9 @@ namespace Kontaktverwaltung
         public FormAddContactsToGroup(Group group, FormMain formMain)
         {
             InitializeComponent();
-            foreach (Contact contact in formMain.allContacts)
-                this.allContacts.Add(contact);
-
 
             this.group = group;
-
-            foreach(Contact contact in group.Members)
-            {
-                this.allContacts.Remove(contact);
-            }
-
+            this.main = formMain;
         }
 
 
@@ -67,39 +60,41 @@ namespace Kontaktverwaltung
 
         private void FormAddContactsToGroup_Load(object sender, EventArgs e)
         {
+            foreach (Contact contact in main.allContacts)
+                this.allContacts.Add(contact);
+
+
             ListViewItem item = null;
 
-            foreach(Contact contact in this.allContacts)
+            foreach (Contact contact in this.allContacts)
             {
                 item = new ListViewItem();
                 item.Tag = contact;
-                item.Text = $"{contact.Surname} {contact.Name}";
-                this.listViewAllContacts.Items.Add(item);
+                item.Text = $"- {contact.Surname} {contact.Name}";
+
+                if (group.members.Contains(contact.ID))
+                    this.listViewContactsInGroup.Items.Add(item);
+                else
+                    this.listViewAllContacts.Items.Add(item);
             }
 
-            foreach (Contact contact in this.group.Members)
-            {
-                item = new ListViewItem();
-                item.Tag = contact;
-                item.Text = $"{contact.Surname} {contact.Name}";
-                this.listViewContactsInGroup.Items.Add(item);
-            }
+            
         }
 
 
         private void listViewAllContacts_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             ListViewItem item = this.listViewAllContacts.GetItemAt(e.X, e.Y);
-            this.group.Members.Add((Contact)item.Tag);
+            this.group.members.Add(((Contact)item.Tag).ID);
             this.listViewAllContacts.Items.Remove(item);
             this.listViewContactsInGroup.Items.Add(item);
-            
+
         }
 
         private void listViewContactsInGroup_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             ListViewItem item = this.listViewContactsInGroup.GetItemAt(e.X, e.Y);
-            this.group.Members.Remove((Contact)item.Tag);
+            this.group.members.Remove(((Contact)item.Tag).ID);
             this.listViewContactsInGroup.Items.Remove(item);
             this.listViewAllContacts.Items.Add(item);
         }

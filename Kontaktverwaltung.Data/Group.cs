@@ -11,12 +11,12 @@ namespace Kontaktverwaltung.Data
 
         public Group()
         {
-            this.Members = new List<Contact>();
+            this.members = new List<int>();
         }
 
 
         public string Name { get; set; }
-        public List<Contact> Members { get; set; }
+        public List<int> members { get; set; }
         public string Info { get; set; }
     }
 }

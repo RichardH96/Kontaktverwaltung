@@ -56,6 +56,7 @@
             this.listViewAllContacts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderName});
             this.listViewAllContacts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewAllContacts.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewAllContacts.Location = new System.Drawing.Point(3, 18);
             this.listViewAllContacts.Name = "listViewAllContacts";
             this.listViewAllContacts.Size = new System.Drawing.Size(321, 405);
@@ -84,6 +85,7 @@
             this.listViewContactsInGroup.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderName1});
             this.listViewContactsInGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewContactsInGroup.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewContactsInGroup.Location = new System.Drawing.Point(3, 18);
             this.listViewContactsInGroup.Name = "listViewContactsInGroup";
             this.listViewContactsInGroup.Size = new System.Drawing.Size(320, 405);

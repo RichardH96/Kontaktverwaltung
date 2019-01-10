@@ -15,6 +15,7 @@ namespace Kontaktverwaltung
     {
         List<Group> allGroups = null;
         FormMain formMain = null;
+        Group selectedGroup = null;
 
 
         public FormGroups()
@@ -37,17 +38,13 @@ namespace Kontaktverwaltung
 
         private void buttonDone_Click(object sender, EventArgs e)
         {
-            
-            foreach(ListViewItem item in this.listViewGroups.Items)
+            if (selectedGroup != null)
             {
-                if (item.Checked == true)
-                {
-                    this.formMain.selectedGroup = (Group)item.Tag;
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
-
+                this.formMain.selectedGroup = selectedGroup;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
+
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -72,39 +69,32 @@ namespace Kontaktverwaltung
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            foreach(ListViewItem item in this.listViewGroups.Items)
+            if (selectedGroup != null)
             {
-                if (item.Checked == true)
+                if (MessageBox.Show($"Wollen Sie die Gruppe \"{selectedGroup.Name}\" wirklich löschen?", "Hinweis", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    Group group = (Group)item.Tag;
-                    if (MessageBox.Show($"Wollen Sie wirklich die Gruppe \"{group.Name}\" löschen?", "Hinweis", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.OK)
-                    {
-                        this.allGroups.Remove(group);
-                        this.formMain.save();
-                        createItem();
-                    }
-
+                    this.allGroups.Remove(selectedGroup);
+                    this.formMain.save();
+                    createItem();
                 }
             }
+
         }
 
         private void buttonEditGroup_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem item in this.listViewGroups.Items)
+            if (selectedGroup != null)
             {
-                if (item.Checked == true)
-                {
-                    FormEditGroup form = new FormEditGroup((Group)item.Tag, this.formMain);
-                    form.Show();
+                FormEditGroup form = new FormEditGroup(selectedGroup, this.formMain);
+                form.ShowDialog();
 
-                    if (form.DialogResult == DialogResult.OK)
-                    {
-                        createItem();
-                        this.formMain.save();
-                    }
-                    break;
+                if (form.DialogResult == DialogResult.OK)
+                {
+                    createItem();
+                    this.formMain.save();
                 }
             }
+
         }
 
 
@@ -128,11 +118,11 @@ namespace Kontaktverwaltung
                 item.Tag = group;
                 item.Text = group.Name;
                 item.SubItems.Add(group.Info);
-                item.SubItems.Add(group.Members.Count.ToString());
+                item.SubItems.Add(group.members.Count.ToString());
                 this.listViewGroups.Items.Add(item);
             }
-            
-            
+
+
         }
 
         #endregion
@@ -152,20 +142,25 @@ namespace Kontaktverwaltung
         {
             ListViewItem item = this.listViewGroups.GetItemAt(e.X, e.Y);
             Group group = (Group)item.Tag;
+            selectedGroup = (Group)item.Tag;
             this.listViewContacts.Items.Clear();
 
-            if (group.Members.Count > 0)
+            if (group.members.Count > 0)
             {
-                foreach (Contact contact in ((Group)item.Tag).Members)
+                foreach (Contact contact in formMain.allContacts)
                 {
-                    item = new ListViewItem();
-                    item.Tag = contact;
-                    item.Text = $"{contact.Surname} {contact.Name}";
-                    item.ImageIndex = 0;
-                    this.listViewContacts.Items.Add(item);
+                    if (group.members.Contains(contact.ID))
+                    {
+                        item = new ListViewItem();
+                        item.Tag = contact;
+                        item.Text = $"{contact.Surname} {contact.Name}";
+                        item.ImageIndex = 0;
+                        this.listViewContacts.Items.Add(item);
+                    }
+                    
                 }
             }
-            
+
         }
 
         private void listViewGroups_MouseDoubleClick(object sender, MouseEventArgs e)

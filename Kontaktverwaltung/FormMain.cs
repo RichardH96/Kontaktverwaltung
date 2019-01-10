@@ -23,6 +23,7 @@ namespace Kontaktverwaltung
         public List<Contact> allContacts = new List<Contact>();
         List<Contact> searchList = new List<Contact>();
         List<Group> allGroups = new List<Group>();
+        List<int> allIDs = new List<int>();
 
         public FormMain()
         {
@@ -50,7 +51,27 @@ namespace Kontaktverwaltung
 
         private void MenuItemNewContact_Click(object sender, EventArgs e)
         {
+            bool thisID = true;
             Contact contact = new Contact();
+            for (int i = 1; i < 10000; i++)
+            {
+                foreach (Contact contact1 in this.allContacts)
+                {
+                    if (i == contact1.ID)
+                    {
+                        thisID = false;
+                        break;
+                    }
+                        
+                }
+
+                if (thisID == true)
+                {
+                    contact.ID = i;
+                    allIDs.Add(i);
+                    break;
+                }
+            }
             FormAddContact form = new FormAddContact(contact);
             form.ShowDialog();
 
@@ -149,12 +170,14 @@ namespace Kontaktverwaltung
 
         private void buttonFavorites_Click(object sender, EventArgs e)
         {
+            this.labelTitle.Text = "Kontakte: Favoriten";
             fillPanelFav();
         }
 
 
         private void buttonAllContacts_Click(object sender, EventArgs e)
         {
+            this.labelTitle.Text = "Kontakte:";
             fillPanel();
         }
 
@@ -165,6 +188,7 @@ namespace Kontaktverwaltung
 
             if (form.DialogResult == DialogResult.OK) 
             {
+                this.labelTitle.Text = $"Kontakte: \"{this.selectedGroup.Name}\"";
                 fillPanelGroup();
             }
 
@@ -232,11 +256,15 @@ namespace Kontaktverwaltung
             this.flowLayoutPanelMain.Controls.Clear();
             BaseContact baseContact = null;
 
-            foreach (Contact contact in this.selectedGroup.Members)
+            foreach (Contact contact in this.allContacts)
             {
-                baseContact = new BaseContact(contact, this);
-                baseContact.Tag = contact;
-                this.flowLayoutPanelMain.Controls.Add(baseContact);
+                if (selectedGroup.members.Contains(contact.ID))
+                {
+                    baseContact = new BaseContact(contact, this);
+                    baseContact.Tag = contact;
+                    this.flowLayoutPanelMain.Controls.Add(baseContact);
+                }
+                
             }
         }
 
@@ -248,14 +276,11 @@ namespace Kontaktverwaltung
 
         public void save()
         {
-            //StreamWriter writer = new StreamWriter(savepath, false, Encoding.UTF8);
-            //XmlSerializer serializer = new XmlSerializer(typeof(List<Contact>));
-            //serializer.Serialize(writer, allContacts);
-            //writer.Close();
-
             SaveThis save = new SaveThis();
+
             save.allContacts = this.allContacts;
             save.allGroups = this.allGroups;
+            save.usedIDs = this.allIDs;
 
             StreamWriter writer = new StreamWriter(savepath, false, Encoding.UTF8);
             XmlSerializer serializer = new XmlSerializer(typeof(SaveThis));
@@ -392,11 +417,6 @@ namespace Kontaktverwaltung
 
             if (File.Exists(savepath))
             {
-                //StreamReader reader = new StreamReader(this.savepath, Encoding.UTF8);
-                //XmlSerializer serializer = new XmlSerializer(typeof(List<Contact>));
-                //this.allContacts = (List<Contact>)serializer.Deserialize(reader);
-                //reader.Close();
-
                 SaveThis save = new SaveThis();
 
                 StreamReader reader = new StreamReader(this.savepath, Encoding.UTF8);
@@ -406,12 +426,13 @@ namespace Kontaktverwaltung
 
                 this.allContacts = save.allContacts;
                 this.allGroups = save.allGroups;
+                this.allIDs = save.usedIDs;
 
                 fillPanel();
 
 
             }
-            this.toolStripStatusUser.Text = this.username;
+            this.toolStripStatusUser.Text = $"angemeldeter Benutzer: {this.username}";
 
 
         }

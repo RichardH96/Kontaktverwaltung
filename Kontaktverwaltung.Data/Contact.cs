@@ -27,7 +27,7 @@ namespace Kontaktverwaltung.Data
 		public string Telnr { get; set; }
 
         public bool favorite { get; set; }
-        public List<string> groups { get; set; }
+        public int ID { get; set; }
 
        
 

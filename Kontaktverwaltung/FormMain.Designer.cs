@@ -40,7 +40,7 @@
             this.setSavepathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusUser = new System.Windows.Forms.ToolStripStatusLabel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelTitle = new System.Windows.Forms.Label();
             this.buttonFavorites = new System.Windows.Forms.Button();
             this.buttonAllContacts = new System.Windows.Forms.Button();
             this.buttonGroup = new System.Windows.Forms.Button();
@@ -148,16 +148,16 @@
             this.toolStripStatusUser.Size = new System.Drawing.Size(75, 20);
             this.toolStripStatusUser.Text = "Username";
             // 
-            // label1
+            // labelTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(193, 46);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(202, 46);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Kontakte:";
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Location = new System.Drawing.Point(193, 46);
+            this.labelTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(202, 46);
+            this.labelTitle.TabIndex = 3;
+            this.labelTitle.Text = "Kontakte:";
             // 
             // buttonFavorites
             // 
@@ -224,7 +224,7 @@
             this.Controls.Add(this.buttonAllContacts);
             this.Controls.Add(this.buttonFavorites);
             this.Controls.Add(this.labelSort);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.flowLayoutPanelMain);
             this.Controls.Add(this.menuMain);
@@ -254,7 +254,7 @@
 		private System.Windows.Forms.ToolStripMenuItem MenuItemExit;
 		private System.Windows.Forms.StatusStrip statusStrip1;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusUser;
-		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setSavepathToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newGroupToolStripMenuItem;
